@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZMGAME 资源站</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 2rem;
+        }
+
+        /* 容器居中 */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .update-note {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        /* 下载列表样式 */
+        .download-list {
+            list-style: none;
+        }
+
+        .download-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+            /* 初始状态：透明且位置偏下 */
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* 动画效果：渐入+上移 */
+        .download-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .download-item:hover {
+            background-color: #f0f0f0;
+            transform: translateX(5px);
+        }
+
+        .download-link {
+            text-decoration: none;
+            color: #2196F3;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .download-link:hover {
+            color: #0b7dda;
+            text-decoration: underline;
+        }
+
+        .download-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .file-info {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            margin-left: 24px;
+        }
+
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .pagination button {
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            border: none;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pagination button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .pagination button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ZMGAME 资源下载站</h1>
+            <p class="update-note">还在更新，敬请期待，如果点不动是还未开发的链接</p>
+        </div>
+        <ul class="download-list" id="downloadList">
+            <!-- 这里替换为你的文件信息 -->
+            <li class="download-item">
+                <a href="https://pcsoftcdn.ddooo.com/pcsf/dpx5gf_215720.rar?time=1753598643&key=53f04af5802c6dc6fca228d07743735d" class="download-link" download>
+                    <span class="download-icon">📦</span>
+                    地平线5
+                </a>
+                <p class="file-info">描述：大型游戏 | 大小：176.92GB</p>
+            </li>
+            <li class="download-item">
+                <a href="https://tfns3gr3dymt1granhpjafa3dk.dzst999.com:20443/pcshare.ddooo.com/file/rzscum_45164.zip?time=1753598754&key=a9c9e850b7ae1f472a2a2a954b932b3d&wsiphost=ipdbme&wsrid_tag=6885cb26_zhoudianxin148_3378-5485-s1t1753598758278&ip_type=0" class="download-link" download>
+                    <span class="download-icon">💻</span>
+                    人渣scum单机版
+                </a>
+                <p class="file-info">描述：中型游戏 | 大小：35.58GB</p>
+            </li>
+            <li class="download-item">
+                <a href="https://pcsoftcdn.ddooo.com/pcsf/hshwk_181228.rar?time=1753598839&key=2904817dd3438f6118906082d9e1423a" class="download-link" download>
+                    <span class="download-icon">🔨</span>
+                    黑神话悟空
+                </a>
+                <p class="file-info">描述：大型游戏 | 大小：128.68GB</p>
+            </li>
+            <li class="download-item">
+                <a href="https://tfns3gr3dymt1granhpjafa3dk.dzst999.com:20443/pcshare.ddooo.com/file/xzwr_99803.zip?time=1753598986&key=f33e09b847e099b9cb3f840f6545b3dc&wsiphost=ipdbme&wsrid_tag=6885cc0e_PS-DGM-01vVd41_2482-42482-s1t1753598990583&ip_type=0" class="download-link" download>
+                    <span class="download-icon">😜</span>
+                    寻找为人
+                </a>
+                <p class="file-info">描述：恐怖端游 | 大小：193.39MB</p>
+            </li>
+            <li class="download-item">
+                <a href="https://pcsoftcdn.ddooo.com/pcsf/hshwkxgq_109377.rar?time=1753599056&key=44752793ce4c51ee6e0afa29eaf98246" class="download-link" download>
+                    <span class="download-icon">👉</span>
+                    黑神话悟空修改器
+                </a>
+                <p class="file-info">描述：修改器 | 大小：802k</p>
+            </li>
+            <li class="download-item">
+                <a href="https://tfns1geaunmttgoa1hcjzgczdqca.dzst999.com:20443/pcshare.ddooo.com/file/kbnn2dnb_97981.zip?time=1753599321&key=db3df0ddf211e82c203368d911e90614&wsiphost=ipdbme&wsrid_tag=6885cd5d_zhoudianxin148_3797-37495-s1t1753599325100&ip_type=0" class="download-link" download>
+                    <span class="download-icon">👍（推荐！！！）</span>
+                    恐怖老奶奶（双人增强版）
+                </a>
+                <p class="file-info">描述：恐怖惊悚 | 大小：455.7MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">敬请期待</span>
+                    暂无
+                </a>
+                <p class="file-info">描述：无 | 大小：？？？MB</p>
+            </li>
+            <li class="download-item">
+                <a href="https://pcsoftcdn.ddooo.com/pcsf/DllRepair_7925.rar?time=1753599559&key=1c10aaa49b38c82a885d297d327765d8" class="download-link" download>
+                    <span class="download-icon">🔌</span>
+                    系统运行库
+                </a>
+                <p class="file-info">描述：修复缺少的游戏运行库 | 大小：371k</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">📜</span>
+                    游戏脚本文件.lua
+                </a>
+                <p class="file-info">描述：自定义游戏行为脚本 | 大小：3.7MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">🗺️</span>
+                    地图编辑器工具.zip
+                </a>
+                <p class="file-info">描述：自定义地图创建工具 | 大小：56.1MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">👚</span>
+                    角色服装MOD.zip
+                </a>
+                <p class="file-info">描述：角色外观自定义模组 | 大小：12.5MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">⚙️</span>
+                    游戏优化补丁.exe
+                </a>
+                <p class="file-info">描述：性能优化与Bug修复补丁 | 大小：4.8MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">📱</span>
+                    手机版安装包.apk
+                </a>
+                <p class="file-info">描述：移动端适配版本 | 大小：158.2MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">🔧</span>
+                    开发工具包.zip
+                </a>
+                <p class="file-info">描述：游戏开发资源与工具 | 大小：89.3MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">🎬</span>
+                    游戏过场动画包.zip
+                </a>
+                <p class="file-info">描述：高清过场动画文件 | 大小：210.5MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">📱</span>
+                    控制器配置文件.cfg
+                </a>
+                <p class="file-info">描述：手柄/键盘自定义配置 | 大小：0.2MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">🎭</span>
+                    语音包文件.zip
+                </a>
+                <p class="file-info">描述：多语言语音替换包 | 大小：75.9MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">📊</span>
+                    游戏数据导出工具.exe
+                </a>
+                <p class="file-info">描述：游戏内数据导出工具 | 大小：6.4MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">📑</span>
+                    游戏API文档.pdf
+                </a>
+                <p class="file-info">描述：开发者API参考手册 | 大小：22.1MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">🔍</span>
+                    游戏修改器.zip
+                </a>
+                <p class="file-info">描述：非官方游戏修改工具 | 大小：8.7MB</p>
+            </li>
+            <li class="download-item">
+                <a href="#" class="download-link" download>
+                    <span class="download-icon">🔄</span>
+                    版本升级补丁.zip
+                </a>
+                <p class="file-info">描述：从v1.0到v1.2升级包 | 大小：35.6MB</p>
+            </li>
+        </ul>
+
+        <!-- 分页控件 -->
+        <div class="pagination" id="pagination">
+            <button class="active" data-page="1">1</button>
+            <button data-page="2">2</button>
+            <button data-page="3">3</button>
+        </div>
+    </div>
+
+    <script>
+        // 实现逐项渐入动画
+        document.addEventListener('DOMContentLoaded', () => {
+            animateItems();
+            setupPagination();
+        });
+
+        function animateItems() {
+            const items = document.querySelectorAll('.download-item');
+            
+            items.forEach((item, index) => {
+                // 每个项目延迟一定时间出现，形成顺序动画
+                setTimeout(() => {
+                    item.classList.add('animate');
+                }, 100 * index);
+            });
+        }
+
+        // 分页功能
+        function setupPagination() {
+            const itemsPerPage = 8;
+            const downloadList = document.getElementById('downloadList');
+            const pagination = document.getElementById('pagination');
+            const items = document.querySelectorAll('.download-item');
+            const pageCount = Math.ceil(items.length / itemsPerPage);
+
+            // 生成分页按钮
+            pagination.innerHTML = '';
+            for (let i = 1; i <= pageCount; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.dataset.page = i;
+                if (i === 1) button.classList.add('active');
+                button.addEventListener('click', () => {
+                    showPage(i);
+                });
+                pagination.appendChild(button);
+            }
+
+            // 初始显示第一页
+            showPage(1);
+        }
+
+        function showPage(pageNumber) {
+            const itemsPerPage = 8;
+            const items = document.querySelectorAll('.download-item');
+            const startIndex = (pageNumber - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, items.length);
+
+            // 隐藏所有项目
+            items.forEach(item => {
+                item.style.display = 'none';
+            });
+
+            // 显示当前页的项目
+            for (let i = startIndex; i < endIndex; i++) {
+                items[i].style.display = 'block';
+            }
+
+            // 更新活动按钮
+            document.querySelectorAll('#pagination button').forEach(button => {
+                if (parseInt(button.dataset.page) === pageNumber) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
